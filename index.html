@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Downloads</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f5f6fa;
+    }
+
+    .header {
+        width: 100%;
+        height: 260px;
+        background: url('background.jpg') center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 42px;
+        font-weight: bold;
+        text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    .file-list {
+        width: 85%;
+        max-width: 1000px;
+        margin: 20px auto;
+    }
+
+    .file-item {
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    .file-title {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .file-row {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 12px;
+        flex-wrap: wrap;
+    }
+
+    .file-info-box {
+        background: #f8f9fc;
+        padding: 12px 18px;
+        border-radius: 15px;
+        margin: 8px;
+        min-width: 200px;
+        flex-grow: 1;
+    }
+
+    .download-btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 14px 22px;
+        font-size: 17px;
+        font-weight: bold;
+        background: #4b7bec;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.2s;
+        text-decoration: none;
+    }
+
+    .download-btn:hover {
+        background: #3867d6;
+    }
+
+    /* Footer name */
+    .footer-name {
+        text-align: center;
+        margin: 40px 0;
+        font-size: 18px;
+        color: #333;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="header">Download Files</div>
+
+<div class="file-list" id="fileList"></div>
+
+<!-- Added Name at Bottom -->
+<div class="footer-name">Prepared by: YOUR NAME HERE</div>
+
+<script>
+const files = [
+    { name: "Announcement 1", file: "announcement1.pdf", size: "230 KB", type: "PDF" },
+    { name: "Student List", file: "students.pdf", size: "120 KB", type: "PDF" },
+    { name: "Lab Manual", file: "lab_manual.zip", size: "5.2 MB", type: "ZIP" },
+    { name: "Meeting Notes", file: "meeting.pdf", size: "500 KB", type: "PDF" }
+];
+
+files.forEach(f => {
+    document.getElementById("fileList").innerHTML += `
+        <div class="file-item">
+            <div class="file-title">${f.name}</div>
+            <div class="file-row">
+                <div class="file-info-box"><b>File Type:</b> ${f.type}</div>
+                <div class="file-info-box"><b>Size:</b> ${f.size}</div>
+                <div class="file-info-box"><b>Filename:</b> ${f.file}</div>
+            </div>
+            <a class="download-btn" href="${f.file}" download>Download</a>
+        </div>
+    `;
+});
+</script>
+
+<footer style="text-align:center; margin:40px 0; font-size:16px; color:#555;">
+    © Farhad R. Ali
+</footer>
+
+</body>
+</html>
+
